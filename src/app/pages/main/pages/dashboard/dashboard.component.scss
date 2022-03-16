@@ -3,11 +3,12 @@
     text-align: center;
   }
   .product {
-    flex-direction: column;
-    text-align: center;
-    align-content: center;
-    text-overflow: ellipsis;
-    p {
+    &-card {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-content: center;
+      text-overflow: ellipsis;
       margin: 0;
       padding: 0;
       border: 1px solid gray;

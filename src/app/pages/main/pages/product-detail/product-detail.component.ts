@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Product }         from '../../../../models/product';
+import { Product, ProductType }         from '../../../../models/product';
 import { ProductService }  from '../../../../services/product.service';
 
 @Component({
@@ -12,6 +12,8 @@ import { ProductService }  from '../../../../services/product.service';
 })
 export class ProductDetailComponent implements OnInit {
   @Input() product!: Product;
+
+  types : ProductType[] = Object.values(ProductType);
 
   constructor(
     private route: ActivatedRoute,

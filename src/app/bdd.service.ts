@@ -1,5 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Product } from './models/product';
+import { Product, ProductType } from './models/product';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -8,16 +8,11 @@ import { Injectable } from '@angular/core';
 export class BddService implements InMemoryDbService {
   createDb() {
     const products = [
-      { id: 11, name: 'Dr Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Batman' }
+      { id: 11, name: 'Pan', sellIn: 5, quality: 10, type: ProductType.perishable },
+      { id: 12, name: 'Queso Azul', sellIn: 2, quality: 1, type: ProductType.vintage },
+      { id: 13, name: 'Yogurt', sellIn: 5, quality: 6, type: ProductType.perishable },
+      { id: 14, name: 'Sal', sellIn: 1, quality: 80, type: ProductType.immutable },
+      { id: 15, name: 'Jamón', sellIn: 10, quality: 20, type: ProductType.cured },
     ];
     return {products};
   }

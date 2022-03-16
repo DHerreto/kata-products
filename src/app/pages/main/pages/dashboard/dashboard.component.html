@@ -1,13 +1,18 @@
 <div class="dashboard">
-  <h3 class="mb-5">Productos</h3>
+  <h3 class="mb-5">Simulador productos</h3>
   <div class="row">
-      <div *ngFor="let product of products" class="product col-sm-3 col-6 py-4"
-      [routerLink]="['product', product.id]">
-        <p>{{product.name}}</p>
+    <div
+      *ngFor="let product of products"
+      class="product col-sm-3 col-6 py-4"
+      [routerLink]="['product', product.id]"
+    >
+      <div class="product-card">
+        <p>{{ product.name }}</p>
+        <p>TR-{{ product.sellIn }} Q-{{ product.quality }}</p>
+        <p>{{ product.type }}</p>
       </div>
-
+    </div>
   </div>
 
-<!--<app-product-search></app-product-search>-->
-
+  <!--<app-product-search></app-product-search>-->
 </div>

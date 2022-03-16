@@ -1,26 +1,61 @@
-<div class="row" *ngIf="product">
-  <div class="col-12">
-    <h2>{{ product.name | uppercase }} Details</h2>
-  </div>
-  <div class="col-12">
-    <p>id: {{ product.id }}</p>
-  </div>
-  <div class="col-12">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="name"
-        [(ngModel)]="product.name"
-        placeholder="name"
-      />
+<div class="product-detail" *ngIf="product">
+  <div class="row">
+    <div class="col-12">
+      <h2>Detalles: {{ product.name | uppercase }}</h2>
+    </div>
+    <div class="col-12">
+      <p>Id: {{ product.id }}</p>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="product.name"
+        />
+      </div>
     </div>
   </div>
-  <div class="col-6">
-    <button class="btn btn-dark" (click)="goBack()">go back</button>
+  <div class="row mb-5">
+    <div class="col-4">
+      <label for="name">Caducidad</label>
+      <input
+        type="number"
+        class="form-control"
+        id="sellIn"
+        [(ngModel)]="product.sellIn"
+      />
+    </div>
+    <div class="col-4">
+      <label for="name">Calidad</label>
+      <input
+        type="number"
+        class="form-control"
+        id="sellIn"
+        [(ngModel)]="product.quality"
+      />
+    </div>
+    <div class="col-4">
+      <label for="name">Tipo</label>
+      <!-- <input
+        type="number"
+        class="form-control"
+        id="sellIn"
+        [(ngModel)]="product.type"
+      /> -->
+      <select class="custom-select" [(ngModel)]="product.type">
+        <option *ngFor="let type of types">{{ type }}</option>
+      </select>
+    </div>
   </div>
-  <div class="col-6 d-flex justify-content-end">
-    <button class="btn btn-primary" (click)="save()">save</button>
+  <div class="row">
+    <div class="col-6">
+      <button class="btn btn-dark" (click)="goBack()">Volver</button>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+      <button class="btn btn-primary" (click)="save()">Guardar</button>
+    </div>
   </div>
 </div>
