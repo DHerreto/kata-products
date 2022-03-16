@@ -25,11 +25,14 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/products-kata'),
+      dir: require('path').join(__dirname, './coverage'),
       subdir: '.',
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
+        { type: 'html', subdir: 'report-html' },
+        { type: 'text', subdir: '.', file: 'text.txt' },
+        { type: 'text-summary' },
+        { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
+        { type: 'lcov', file: 'lcov.info' },
       ]
     },
     reporters: ['progress', 'kjhtml'],

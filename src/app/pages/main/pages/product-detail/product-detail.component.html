@@ -1,0 +1,26 @@
+<div class="row" *ngIf="product">
+  <div class="col-12">
+    <h2>{{ product.name | uppercase }} Details</h2>
+  </div>
+  <div class="col-12">
+    <p>id: {{ product.id }}</p>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        [(ngModel)]="product.name"
+        placeholder="name"
+      />
+    </div>
+  </div>
+  <div class="col-6">
+    <button class="btn btn-dark" (click)="goBack()">go back</button>
+  </div>
+  <div class="col-6 d-flex justify-content-end">
+    <button class="btn btn-primary" (click)="save()">save</button>
+  </div>
+</div>
