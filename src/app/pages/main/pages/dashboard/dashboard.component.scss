@@ -17,6 +17,12 @@
       &:hover{
         background-color: lightblue;
       }
+      &.bad{
+        background-color: lightcoral;
+      }
+      &.good{
+        background-color: lightgreen;
+      }
     }
   }
 }

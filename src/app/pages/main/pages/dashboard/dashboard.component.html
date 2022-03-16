@@ -1,4 +1,4 @@
-<div class="dashboard">
+<div class="dashboard" *ngIf="products.length > 0; else loading">
   <h3 class="mb-5">Simulador productos</h3>
   <div class="row">
     <div
@@ -6,13 +6,24 @@
       class="product col-sm-3 col-6 py-4"
       [routerLink]="['product', product.id]"
     >
-      <div class="product-card">
+      <div class="product-card" [ngClass]="{'bad': product.quality <= 0, 'good': product.quality >= 50}">
         <p>{{ product.name }}</p>
-        <p>TR-{{ product.sellIn }} Q-{{ product.quality }}</p>
+        <p>TR: {{ product.sellIn }} Q: {{ product.quality }}</p>
         <p>{{ product.type }}</p>
       </div>
     </div>
   </div>
+  <div class="row mt-5">
+    <div class="col-12 d-flex justify-content-center">
+      <button class="btn btn-info" (click)="simulation()">Simular</button>
+    </div>
+  </div>
 
-  <!--<app-product-search></app-product-search>-->
 </div>
+<ng-template #loading>
+<div class="d-flex justify-content-center">
+  <div class="spinner-border text-info" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+</ng-template>
