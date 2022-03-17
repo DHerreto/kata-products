@@ -22,13 +22,13 @@ La simulación:
 * Una vez que la R baja de 0, la Q se degrada al doble de velocidad. En caso contrario la Q baja 1 unidad al día.
 * Cuando un producto baje su calidad a 0 debe mostrarse su ficha en rojo.
 * La calidad nunca es negativa.
-* Los productos tipo Antiguo incrementan su calidad a medida que envejecen 
-	* Su Q aumenta 1 unidad cada día
-	* Pasada su R aumenta 2 unidades al día
+* Los productos tipo Antiguo incrementan su calidad a medida que envejecen
+  * Su Q aumenta 1 unidad cada día
+  * Pasada su R aumenta 2 unidades al día
 * Cuando un producto alcance la máxima calidad de su tipo debe aparecer en verde.
-* La Q de un producto nunca es mayor que 50, excepto los Inmutable que por sus propiedades siempre es de 80
+* La Q de un producto nunca es mayor que 50, excepto los Inmutable que por sus propiedades su Q será con la que el producto se creó
 * Los productos Inmutable ni se degradan ni modifican su R.
 * Los productos Curado incrementan su Q según envejecen de la siguiente manera:
-	* Si faltan 10 días o menos, la Q se incrementa en 2
-	* Si faltan 5 días o menos, la Q se incrementa en 3
-	* Una vez la R baja de 0, la Q cae a 0
+  * Si faltan 10 días o menos, la Q se incrementa en 2
+  * Si faltan 5 días o menos, la Q se incrementa en 3
+  * Una vez la R baja de 0, la Q cae a 0
