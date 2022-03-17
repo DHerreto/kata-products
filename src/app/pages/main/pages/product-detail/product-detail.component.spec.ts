@@ -1,12 +1,6 @@
 import { CommonModule, Location } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import {
-  ComponentFixture,
-  fakeAsync,
-  flush,
-  TestBed,
-  tick,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -61,7 +55,10 @@ describe('ProductDetailComponent', () => {
 
   it('should get empty product info if param id is empty', () => {
     spyOn(route.snapshot.paramMap, 'get').and.returnValue(null);
-    const spyProductService = spyOn(productService, 'getProduct').and.returnValue(of({} as Product));
+    const spyProductService = spyOn(
+      productService,
+      'getProduct'
+    ).and.returnValue(of({} as Product));
 
     fixture.detectChanges();
 

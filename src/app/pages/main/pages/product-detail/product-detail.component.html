@@ -38,8 +38,8 @@
       />
     </div>
     <div class="col-4">
-      <label for="name">Tipo</label>
-      <select class="custom-select" [(ngModel)]="product.type">
+      <label for="type">Tipo</label>
+      <select class="custom-select" [(ngModel)]="product.type" id="type">
         <option *ngFor="let type of types">{{ type }}</option>
       </select>
     </div>
