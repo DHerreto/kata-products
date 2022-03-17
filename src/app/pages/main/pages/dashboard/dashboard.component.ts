@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, ProductType } from '../../../../models/product';
-import { ProductService } from '../../../../services/product.service';
+import { Product, ProductI, ProductType } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,7 +19,19 @@ export class DashboardComponent implements OnInit {
   getProducts(): void {
     this.productService
       .getProducts()
-      .subscribe((products) => (this.products = products));
+      .subscribe(
+        (products: ProductI[]) =>
+          (this.products = products.map(
+            (prod: ProductI) =>
+              new Product(
+                prod.id,
+                prod.name,
+                prod.quality,
+                prod.sellIn,
+                prod.type
+              )
+          ))
+      );
   }
 
   simulation(): void {

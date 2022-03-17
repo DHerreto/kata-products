@@ -8,6 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MainComponent } from './main.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -17,6 +18,7 @@ describe('MainComponent', () => {
     TestBed.configureTestingModule({
       declarations: [MainComponent],
       imports: [
+        RouterTestingModule,
         NoopAnimationsModule,
         LayoutModule,
         MatButtonModule,

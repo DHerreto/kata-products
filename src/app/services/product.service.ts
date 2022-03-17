@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
+import { catchError, tap } from 'rxjs/operators';
 import { Product } from '../models/product';
 import { MessageService } from './message.service';
-
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -30,21 +27,7 @@ export class ProductService {
       );
   }
 
-  /** GET product by id. Return `undefined` when id not found */
-  getProductNo404<Data>(id: number): Observable<Product> {
-    const url = `${this.productsUrl}/?id=${id}`;
-    return this.http.get<Product[]>(url)
-      .pipe(
-        map(products => products[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} product id=${id}`);
-        }),
-        catchError(this.handleError<Product>(`getProduct id=${id}`))
-      );
-  }
-
-  /** GET product by id. Will 404 if id not found */
+  /** GET product by id. */
   getProduct(id: number): Observable<Product> {
     const url = `${this.productsUrl}/${id}`;
     return this.http.get<Product>(url).pipe(

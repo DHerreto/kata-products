@@ -4,6 +4,13 @@ export enum ProductType {
   vintage = 'Antiguo',
   immutable = 'Inmutable'
 }
+export interface ProductI {
+  id: number;
+  name: string;
+  sellIn: number;
+  quality: number;
+  type: ProductType;
+}
 export class Product {
   id: number;
   name: string;
