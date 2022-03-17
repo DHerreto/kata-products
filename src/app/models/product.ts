@@ -1,5 +1,5 @@
 export enum ProductType {
-  perishable = 'Pedecedero',
+  perishable = 'Perecedero',
   cured = 'Curado',
   vintage = 'Antiguo',
   immutable = 'Inmutable'
