@@ -26,8 +26,8 @@ export class DashboardComponent implements OnInit {
               new Product(
                 prod.id,
                 prod.name,
-                prod.quality,
                 prod.sellIn,
+                prod.quality,
                 prod.type
               )
           ))
