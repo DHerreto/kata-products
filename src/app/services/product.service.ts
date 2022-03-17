@@ -36,38 +36,6 @@ export class ProductService {
     );
   }
 
-  /* GET products whose name contains search term */
-  searchProducts(term: string): Observable<Product[]> {
-    if (!term.trim()) {
-      // if not search term, return empty product array.
-      return of([]);
-    }
-    return this.http.get<Product[]>(`${this.productsUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found products matching "${term}"`)),
-      catchError(this.handleError<Product[]>('searchProducts', []))
-    );
-  }
-
-  //////// Save methods //////////
-
-  /** POST: add a new product to the server */
-  addProduct (product: Product): Observable<Product> {
-    return this.http.post<Product>(this.productsUrl, product, this.httpOptions).pipe(
-      tap((newProduct: Product) => this.log(`added product w/ id=${newProduct.id}`)),
-      catchError(this.handleError<Product>('addProduct'))
-    );
-  }
-
-  /** DELETE: delete the product from the server */
-  deleteProduct (product: Product | number): Observable<Product> {
-    const id = typeof product === 'number' ? product : product.id;
-    const url = `${this.productsUrl}/${id}`;
-
-    return this.http.delete<Product>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted product id=${id}`)),
-      catchError(this.handleError<Product>('deleteProduct'))
-    );
-  }
 
   /** PUT: update the product on the server */
   updateProduct (product: Product): Observable<any> {
