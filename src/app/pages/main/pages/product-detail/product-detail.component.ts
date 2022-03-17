@@ -29,7 +29,13 @@ export class ProductDetailComponent implements OnInit {
     const id = +(this.route.snapshot.paramMap.get('id') || 0);
     this.productService
       .getProduct(id)
-      .subscribe((product) => (this.product = product));
+      .subscribe((product) => (this.product = new Product(
+        product.id,
+        product.name,
+        product.sellIn,
+        product.quality,
+        product.type
+      )));
   }
 
   goBack(): void {

@@ -42,12 +42,28 @@ describe('DashboardComponent', () => {
     });
 
     it('should draw as many product cards as it retrieve', () => {
-      const serviceSpy = spyOn(productService, 'getProducts').and.returnValue(
-        of(mockProducts)
-      );
+      spyOn(productService, 'getProducts').and.returnValue(of(mockProducts));
       fixture.detectChanges();
       const cards = fixture.debugElement.queryAll(By.css('.product-card'));
       expect(component.products.length).toBe(cards.length);
     });
+  });
+  describe('Product simulation', () => {
+    it('should be accessible through the template', () => {
+      // is it a good idea to call the function?
+      const spySimulation = spyOn(component, 'simulation').and.callThrough();
+      // Not really, as we just want to check that it can be accessed.
+
+      spyOn(productService, 'getProducts').and.returnValue(of(mockProducts));
+      fixture.detectChanges();
+
+      const btn = fixture.debugElement.query(By.css('.btn-primary'));
+      btn.nativeElement.click();
+
+      expect(spySimulation).toHaveBeenCalled();
+    });
+
+    // TODO: complete functional test
+
   });
 });
