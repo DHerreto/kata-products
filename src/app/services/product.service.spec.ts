@@ -47,9 +47,32 @@ describe('ProductService', () => {
     productService.getProducts().subscribe();
 
     const req = httpTestingController.expectOne(apiUrl);
-    req.flush('Retrieve products failed', { status: 500, statusText: mockStatusText });
+    req.flush('Retrieve products failed', {
+      status: 500,
+      statusText: mockStatusText,
+    });
     expect(req.request.method).toEqual('GET');
-    expect(spyMessage).toHaveBeenCalledWith(`ProductService: getProducts failed: Http failure response for api/products: 500 ${mockStatusText}`);
+    expect(spyMessage).toHaveBeenCalledWith(
+      `ProductService: getProducts failed: Http failure response for api/products: 500 ${mockStatusText}`
+    );
+  });
+
+  it('should retrieve product by id', () => {
+    productService.getProduct(11).subscribe((product: Product) => {
+      expect(product.id).toBe(11);
+    });
+    const req = httpTestingController.expectOne(apiUrl + '/11');
+    req.flush(mockProducts[0]);
+
+    expect(req.request.method).toEqual('GET');
+  });
+
+  it('should send product to update', () => {
+    productService.updateProduct(mockProducts[0]).subscribe();
+    const req = httpTestingController.expectOne(apiUrl);
+    req.flush({ status: 200 });
+
+    expect(req.request.method).toEqual('PUT');
   });
 
 });
