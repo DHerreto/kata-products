@@ -26,7 +26,7 @@ La simulación:
   * Su Q aumenta 1 unidad cada día
   * Pasada su R aumenta 2 unidades al día
 * Cuando un producto alcance la máxima calidad de su tipo debe aparecer en verde.
-* La Q de un producto nunca es mayor que 50, excepto los Inmutable que por sus propiedades siempre es de 80
+* La Q de un producto nunca es mayor que 50, excepto los Inmutable que por sus propiedades su Q será con la que el producto se creó
 * Los productos Inmutable ni se degradan ni modifican su R.
 * Los productos Curado incrementan su Q según envejecen de la siguiente manera:
   * Si faltan 10 días o menos, la Q se incrementa en 2
