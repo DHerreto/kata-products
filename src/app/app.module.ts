@@ -1,4 +1,3 @@
-import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,7 +12,6 @@ import { BddService } from './bdd.service';
   ],
   imports: [
     BrowserAnimationsModule,
-    LayoutModule,
     HttpClientModule,
     AppRoutingModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
