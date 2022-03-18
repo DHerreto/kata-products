@@ -125,5 +125,7 @@ describe('ProductDetailComponent', () => {
     component.save();
     expect(productService.updateProduct).toHaveBeenCalled();
     expect(spyGoBack).toHaveBeenCalled();
+    // alternativa 'sucia'
+    // expect(backMock).toBeTrue()
   });
 });

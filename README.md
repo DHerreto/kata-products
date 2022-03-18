@@ -1,14 +1,38 @@
 # Kata Angular
 
-## Servidor de desarrollo
+## Requisitos para local
 
-Ejecuta `npm start` para arrancar el servidor local. Navega a `http://localhost:4200/`.
+* Node 12.16.3 o superior
+* Git
+* IDE de desarrollo
 
-## Running unit tests
+## Alternativa online
 
-Ejecuta `npm run test` para ejecutar los test via [Karma](https://karma-runner.github.io).
+[Stackblitz](https://stackblitz.com/edit/angular-tdd-example-26gbu8)
 
-## Requisitos funcionales
+## Servidor de desarrollo (local)
+
+Ejecuta `npm start` para arrancar el servidor local. Accede por navegador  web a `http://localhost:4200/`.
+
+## Running unit tests (local)
+
+Ejecuta `npm run test` para ejecutar las pruebas vía [Karma](https://karma-runner.github.io).
+
+## Desarrollo online (stackblitz)
+
+Hay dos archivos main.ts (main.ts y main.ts.jasmine) hay que ir jugando, cambiando el nombre de este archivo para que arranque la web (main.ts) o ejecute los test con Jasmine.
+
+## Objetivo principal
+
+* Ver como se gestiona la inyección de dependencia en distintos y como se instancian los distintos artefactos Angular (componentes, servicios y pipes)
+
+* Ver como se hacen test de componentes (TS + Html) y de servicio de API (como mockear HTTP-Request)
+
+## Objetivo secundario
+
+* Conocer TDD y su ciclo [RED – GREEN – REFACTOR](https://softwarecrafters.io/javascript/tdd-test-driven-development)
+
+## Requisitos funcionales de la aplicación
 
 Nuestro PF quiere un simulador de productos, donde puede ver como se degradan los productos según se van acercando a su R (fecha de retirada).
 
@@ -32,3 +56,7 @@ La simulación:
   * Si faltan 10 días o menos, la Q se incrementa en 2
   * Si faltan 5 días o menos, la Q se incrementa en 3
   * Una vez la R baja de 0, la Q cae a 0
+
+## Nuevo requisito
+
+* Ahora PF quiere simular también los productos de tipo Congelado o Frozen, estos degradan su Q al doble de velocidad que los productos normales (Perecedero)
