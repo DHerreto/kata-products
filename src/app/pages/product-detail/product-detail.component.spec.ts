@@ -30,13 +30,12 @@ describe('ProductDetailComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductDetailComponent/*, pascalKebabCasePipe*/],
+      declarations: [ProductDetailComponent, pascalKebabCasePipe],
       imports: [
         CommonModule,
         HttpClientTestingModule,
         RouterTestingModule,
-        FormsModule,
-        PascalKebabCasePipeModule // quitar y ver como queda la cobertura
+        FormsModule
       ],
     });
 
