@@ -175,10 +175,19 @@ describe('DashboardComponent', () => {
         const mockProduct = new Product(11, 'Ham', 0, 10, ProductType.cured);
         component.products = [mockProduct];
 
-        component.simulation();
+        component.simulation(); // sellIn -1
         expect(component.products[0].quality).toBe(0);
-        component.simulation();
+        component.simulation(); // sellIn -2
         expect(component.products[0].quality).toBe(0);
+      });
+      it('should not downgrade Q if there are more than 10 days', () => {
+        const mockProduct = new Product(11, 'Ham', 12, 10, ProductType.cured);
+        component.products = [mockProduct];
+
+        component.simulation(); // sellIn 11
+        expect(component.products[0].quality).toBe(11);
+        component.simulation(); // SellIn 10
+        expect(component.products[0].quality).toBe(12);
       });
     });
 
