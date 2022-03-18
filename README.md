@@ -53,7 +53,7 @@ La simulación:
 * La Q de un producto nunca es mayor que 50, excepto los Inmutable que por sus propiedades su Q será con la que el producto se creó
 * Los productos Inmutable ni se degradan ni modifican su R.
 * Los productos Curado incrementan su Q según envejecen de la siguiente manera:
-  * Si faltan 10 días o menos, la Q se incrementa en 2
+  * Si faltan menos de 10 días, la Q se incrementa en 2
   * Si faltan 5 días o menos, la Q se incrementa en 3
   * Si faltan más incrementa en 1
   * Una vez la R baja de 0, la Q cae a 0
