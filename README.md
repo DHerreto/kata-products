@@ -24,9 +24,9 @@ Hay dos archivos main.ts (main.ts y main.ts.jasmine) hay que ir jugando, cambian
 
 ## Objetivo principal
 
-* Ver como se gestiona la inyección de dependencia en distintos y como se instancian los distintos artefactos Angular (componentes, servicios y pipes)
+* Conocer como se gestiona la inyección de dependencia en distintos los distintos artefactos Angular (componentes, servicios y pipes) y como se instancian.
 
-* Ver como se hacen test de componentes (TS + Html) y de servicio de API (como mockear HTTP-Request)
+* Conocer las diferencias entre test de componentes (TS + Html) y de servicio de API (como mockear HTTP-Request).
 
 ## Objetivo secundario
 
