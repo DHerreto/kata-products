@@ -55,6 +55,7 @@ La simulación:
 * Los productos Curado incrementan su Q según envejecen de la siguiente manera:
   * Si faltan 10 días o menos, la Q se incrementa en 2
   * Si faltan 5 días o menos, la Q se incrementa en 3
+  * Si faltan más incrementa en 1
   * Una vez la R baja de 0, la Q cae a 0
 
 ## Nuevo requisito
