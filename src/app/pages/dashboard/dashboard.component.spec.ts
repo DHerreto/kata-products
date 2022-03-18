@@ -180,7 +180,7 @@ describe('DashboardComponent', () => {
         component.simulation(); // sellIn -2
         expect(component.products[0].quality).toBe(0);
       });
-      it('should not downgrade Q if there are more than 10 days', () => {
+      it('should icreased Q by 1 if there are 10 days or more', () => {
         const mockProduct = new Product(11, 'Ham', 12, 10, ProductType.cured);
         component.products = [mockProduct];
 
