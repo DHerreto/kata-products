@@ -19,6 +19,12 @@ describe('ProductDetailComponent', () => {
   let productService: ProductService;
   let location: Location;
 
+  /**
+   // alternativa 'sucia' cuando la inyección de dependencia se atasca
+  let backMock = false;
+
+   */
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ProductDetailComponent],
@@ -35,7 +41,15 @@ describe('ProductDetailComponent', () => {
     productService = TestBed.inject(ProductService);
     route = TestBed.inject(ActivatedRoute);
     location = TestBed.inject(Location);
+    // alternativa 'sucia'
+    // component['location'] = {back: () => { backMock = true; }}
   });
+  /*
+  //alternativa 'sucia'
+  afterEach(()=>{
+    backMock = false;
+  });
+  */
 
   it('should exist', () => {
     expect(component).toBeTruthy();
@@ -77,6 +91,8 @@ describe('ProductDetailComponent', () => {
 
     fixture.detectChanges();
     expect(spyLocation).toHaveBeenCalled();
+    // alternativa 'sucia'
+    // expect(backMock).toBeTrue()
   });
 
   it('should update product changes when press Save button', () => {
@@ -109,5 +125,7 @@ describe('ProductDetailComponent', () => {
     component.save();
     expect(productService.updateProduct).toHaveBeenCalled();
     expect(spyGoBack).toHaveBeenCalled();
+    // alternativa 'sucia'
+    // expect(backMock).toBeTrue()
   });
 });
