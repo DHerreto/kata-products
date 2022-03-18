@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { PascalKebabCasePipeModule } from "src/app/pipes/pascal-kebab/pascal-kebab.pipe.module";
 import { ProductDetailRoutingModule } from "./product-detail-routing.module";
 import { ProductDetailComponent } from "./product-detail.component";
 
@@ -11,7 +12,8 @@ import { ProductDetailComponent } from "./product-detail.component";
   imports: [
     CommonModule,
     FormsModule,
-    ProductDetailRoutingModule
+    ProductDetailRoutingModule,
+    PascalKebabCasePipeModule
   ]
 })
 export class ProductDetailModule { };

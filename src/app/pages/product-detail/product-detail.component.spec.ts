@@ -8,6 +8,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { mockProducts } from 'src/app/models/product.mock';
+import { mockPipe } from 'src/app/pipes/mock.pipe';
+import { PascalKebabCasePipeModule } from 'src/app/pipes/pascal-kebab/pascal-kebab.pipe.module';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductDetailComponent } from './product-detail.component';
 
@@ -22,17 +24,19 @@ describe('ProductDetailComponent', () => {
   /**
    // alternativa 'sucia' cuando la inyección de dependencia se atasca
   let backMock = false;
-
    */
+
+  const pascalKebabCasePipe = mockPipe('pascalKebabCase');
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductDetailComponent],
+      declarations: [ProductDetailComponent/*, pascalKebabCasePipe*/],
       imports: [
         CommonModule,
         HttpClientTestingModule,
         RouterTestingModule,
         FormsModule,
+        PascalKebabCasePipeModule // quitar y ver como queda la cobertura
       ],
     });
 
