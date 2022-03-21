@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay, take } from 'rxjs/internal/operators';
 
 @Injectable({ providedIn: 'root' })
 export class MessageService {
@@ -6,11 +8,19 @@ export class MessageService {
 
   constructor() {}
 
-  add(message: string) {
-    this.messages.push(message);
+  add(message: string): void {
+    of(1)
+      .pipe(delay(500), take(1))
+      .subscribe(() => {
+        this.messages.push(message);
+      });
   }
 
-  clear() {
+  get(): Observable<string[]> {
+    return of(this.messages);
+  }
+
+  clear(): void {
     this.messages = [];
   }
 
