@@ -1,4 +1,4 @@
-# Kata Angular
+# Kata Angular Mercadona 
 
 ## Requisitos para local
 
